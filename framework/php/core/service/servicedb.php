@@ -57,21 +57,49 @@ class ServiceDB {
         return $out;
     }
 
-    public function createService($CompleteName, $ShortName, $Description, $Url, $Exe, $Version) {
+    /*  Example for $Methods definition
+        $Methods = array(
+            "getByID" => array(         // function name
+                "ID" => false           // parameter name + optional true / false
+            ),
+            "getByName" => array(       // function name
+                "shortName" => false,   // parameter name + optional true / false
+                "completeName" => true  // parameter name + optional true / false
+            )
+        );
+    */
+    public function createService($CompleteName, $ShortName, $Description, $Version, $Methods) {
         $CompleteName = $this->escape($CompleteName);
         $ShortName = $this->escape($ShortName);
         $Description = $this->escape($Description);
-        $Url = $this->escape($Url);
-        $Exe = $this->escape($Exe);
         $Version = $this->escape($Version);
 
         $baseResult = $this->run("INSERT INTO service (Name) VALUES ('$ShortName')");
         if ($baseResult === false) return false;
 
         $id = strval($this->connection->insert_id);
-        $detailsResult = $this->run("INSERT INTO service_details (ID, CompleteName, ShortName, Description, UrlPath, ExePath) VALUES ($id, '$CompleteName', '$ShortName', '$Description', '$Url', '$Exe')");
-        $versionResult = $this->run("INSERT INTO service_versions (ID, VersionString) VALUES ($id, '$Version')");
-        return $detailsResult !== false && $versionResult !== false;
+        $detailsResult = $this->run("INSERT INTO service_details (ServiceID, CompleteName, Description) VALUES ($id, '$CompleteName', '$Description')");
+        $versionResult = $this->run("INSERT INTO service_versions (ServiceID, VersionString) VALUES ($id, '$Version')");
+
+        $methodResults = true;
+        foreach ($Methods as $Mkey => $Mvalue) {
+            $methodName = $this->escape($Mkey);
+            $resultA = $this->run("INSERT INTO service_methods (ServiceID, Name) VALUES ($id, '$methodName')");
+            $methodID = $this->connection->insert_id;
+
+            $resultB = true;
+            foreach ($Mvalue as $Pkey => $Pvalue) {
+                $parameterName = $this->escape($Pkey);
+                $parameterOptional = intval($this->escape(strval($Pvalue)));
+                $paramResult = $this->run("INSERT INTO service_method_parameters (MethodID, ParameterName, Optional) VALUES ($methodID, '$parameterName', $parameterOptional)");
+
+                $resultB = $resultB && ($paramResult !== false);
+            }
+
+            $methodResults = $methodResults && ($resultA !== false) && ($resultB !== false);
+        }
+
+        return ($detailsResult !== false) && ($versionResult !== false) && ($methodResults !== false);
     }
 
     public function updateService($ShortName, $Version, $ReleaseNotes) {
@@ -83,7 +111,7 @@ class ServiceDB {
         if ($idResult === false || count($idResult) != 1) return false;
         $id = strval($idResult[0]['ID']);
 
-        $updateResult = $this->run("INSERT INTO service_versions (ID, VersionString, ReleaseNotes) VALUES ($id, '$Version', '$ReleaseNotes')");
+        $updateResult = $this->run("INSERT INTO service_versions (ServiceID, VersionString, ReleaseNotes) VALUES ($id, '$Version', '$ReleaseNotes')");
         return $updateResult !== false;
     }
 
@@ -91,9 +119,27 @@ class ServiceDB {
         $list = $this->run("SELECT * FROM service s, service_details d WHERE s.ID = d.ID");
         for ($i = 0; $i < count($list); $i++) {
             $ID = $list[$i]['ID'];
-            $list[$i]['Versions'] = $this->run("SELECT VersionString, ReleaseDate, ReleaseNotes FROM service_versions WHERE ID=$ID");
+            $list[$i]['Versions'] = $this->run("SELECT * FROM service_versions WHERE ID=$ID");
+
+            for ($k = 0; $k < count($list[$i]['Versions']); $k++) {
+                $Date = $list[$i]['Versions'][$k]['ReleaseDate'];
+                $list[$i]['Versions'][$k]['Methods'] = $this->run("SELECT * FROM service_methods WHERE ServiceID=$ID AND ReleaseDate='$Date'");
+
+                for ($j = 0; $j < count($list[$i]['Versions'][$k]['Methods']); $j++) {
+                    $MID = $list[$i]['Versions'][$k]['Methods'][$j]['ID'];
+                    $list[$i]['Versions'][$k]['Methods'][$j]['Parameters'] = $this->run("SELECT * FROM service_method_parameters WHERE MethodID=$MID");
+                }
+            }
         }
         return $list;
+    }
+
+    public function clear() {
+        $this->run("TRUNCATE TABLE service");
+        $this->run("TRUNCATE TABLE service_details");
+        $this->run("TRUNCATE TABLE service_versions");
+        $this->run("TRUNCATE TABLE service_methods");
+        $this->run("TRUNCATE TABLE service_method_parameters");
     }
 }
 

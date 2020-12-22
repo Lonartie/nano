@@ -40,15 +40,20 @@ class Service {
         Debug::Log("Request: " . implode("/", $this->m_request), "Service");
         Debug::Log("JSON:    " . $this->m_json, "Service");
 
-        $rq = $this->m_request;
+        $this->m_db->clear();
+        // $methods = array(
+        //     "getByID" => array(         // function name
+        //         "ID" => false           // parameter name + optional true / false
+        //     ),
+        //     "getByName" => array(       // function name
+        //         "shortName" => false,   // parameter name + optional true / false
+        //         "completeName" => true  // parameter name + optional true / false
+        //     )
+        // );
+        // $this->m_db->createService("short", "long", "desc", "version", $methods);
 
-        if ($this->m_method == 'GET' && count($rq) == 2 && $rq[0] == 'services' && $rq[1] == "all")
-        {
-            Debug::Log("Showing all services", "Service");
-            $result = $this->m_db->all();
-            return $this->out(true, $result);
-        }
-
+        // return $this->out(true, $this->m_db->all());
+        
         Debug::Log("No mathing service found!");
         return $this->out(false, array("error" => "no mathing service found!", "reqest" => $this->m_request, "method" => $this->m_method));
     }
