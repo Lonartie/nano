@@ -1,6 +1,8 @@
 <?php
-include_once '../core/debugging/debug.php';
-include_once '../core/service/companiondb.php';
+include_once(dirname(__FILE__).'/../debugging/debug.php');
+include_once(dirname(__FILE__).'/companiondb.php');
+include_once(dirname(__FILE__).'/output.php');
+
 Debug::Log("Runner", "Module");
 
 class Runner {
@@ -30,8 +32,7 @@ class Runner {
             }
 
             if (!$found && !$optional) {
-                echo json_encode(array("success" => "false", "error" => "non-optional parameter missing '$name'"));
-                exit(0);
+                out(false, "non-optional parameter missing '$name'");
             }
             
             if ($found) {
@@ -53,13 +54,11 @@ class Runner {
 
         if ($result == null) {
             $out = implode(" ", $output);
-            echo json_encode(array("success" => false, "error" => "failed to gather information", "output" => "$out"));
-            exit(0);
+            out(false, array("error" => "failed to gather information", "output" => "$out"));
         }
 
         if (count($result['services']) == 0) {
-            echo json_encode(array("success" => false, "error" => "the files do not define any service!"));
-            exit(0);
+            out(false, "the files do not define any service!");
         }
 
         return $result;
@@ -76,13 +75,11 @@ class Runner {
 
         if ($result == null) {
             $out = implode(" ", $output);
-            echo json_encode(array("success" => false, "error" => "failed to gather information", "output" => "$out"));
-            exit(0);
+            out(false, array("error" => "failed to gather information", "output" => "$out"));
         }
 
         if (count($result['services']) == 0) {
-            echo json_encode(array("success" => false, "error" => "the files do not define any service!"));
-            exit(0);
+            out(false, array("error" => "the files do not define any service!"));
         }
 
         return $result;

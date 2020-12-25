@@ -1,5 +1,6 @@
 <?php
-include_once '../core/debugging/debug.php';
+include_once(dirname(__FILE__).'/../debugging/debug.php');
+
 Debug::Log("ServiceDB", "Module");
 
 class ServiceDB {

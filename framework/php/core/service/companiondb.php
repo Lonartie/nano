@@ -1,8 +1,8 @@
 <?php
-include_once '../core/debugging/debug.php';
-Debug::Log("Companions", "Module");
+include_once(dirname(__FILE__).'/../debugging/debug.php');
+include_once(dirname(__FILE__).'/servicedb.php');
 
-include_once '../core/service/servicedb.php';
+Debug::Log("Companions", "Module");
 
 class CompanionDB {
 
