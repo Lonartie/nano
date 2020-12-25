@@ -9,6 +9,7 @@ class Debug {
 
     private static $m_enabled = false;
     private static $m_type = DebugType::Output;
+    private static $m_break = "\n";
 
     public static function EnableLog($boolean) {
         Debug::$m_enabled = $boolean;
@@ -28,7 +29,7 @@ class Debug {
             } else 
 
             if (Debug::$m_type == DebugType::Output) {
-                echo $label . $message . "<br>";
+                echo $label . $message . Debug::$m_break;
             }
         }
     }

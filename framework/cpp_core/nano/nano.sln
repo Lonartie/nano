@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30709.64
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nano", "nano\nano.vcxproj", "{B57C05E6-5EB2-48F5-A9D2-F315E0022D50}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "nano.test", "nano.test\nano.test.vcxproj", "{ABE8FAE6-4A8B-46F8-8399-C40960A51BA6}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Release|x64 = Release|x64
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B57C05E6-5EB2-48F5-A9D2-F315E0022D50}.Debug|x64.ActiveCfg = Debug|x64
+		{B57C05E6-5EB2-48F5-A9D2-F315E0022D50}.Debug|x64.Build.0 = Debug|x64
+		{B57C05E6-5EB2-48F5-A9D2-F315E0022D50}.Release|x64.ActiveCfg = Release|x64
+		{B57C05E6-5EB2-48F5-A9D2-F315E0022D50}.Release|x64.Build.0 = Release|x64
+		{ABE8FAE6-4A8B-46F8-8399-C40960A51BA6}.Debug|x64.ActiveCfg = Debug|x64
+		{ABE8FAE6-4A8B-46F8-8399-C40960A51BA6}.Debug|x64.Build.0 = Debug|x64
+		{ABE8FAE6-4A8B-46F8-8399-C40960A51BA6}.Release|x64.ActiveCfg = Release|x64
+		{ABE8FAE6-4A8B-46F8-8399-C40960A51BA6}.Release|x64.Build.0 = Release|x64
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		Qt5Version = Qt_5_13
+		SolutionGuid = {DA382DE0-94BB-4B39-9C43-4FDAADEEE190}
+	EndGlobalSection
+EndGlobal

@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Resource Files">
+      <UniqueIdentifier>{D9D6E242-F8AF-46E4-B9FD-80ECBC20BA3E}</UniqueIdentifier>
+      <Extensions>qrc;*</Extensions>
+      <ParseFiles>false</ParseFiles>
+    </Filter>
+    <Filter Include="dll">
+      <UniqueIdentifier>{6a006c6c-72fd-4d3e-ad3d-c16859cc7a39}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="service">
+      <UniqueIdentifier>{cb27406d-eb1f-4be6-907d-22e770d45541}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="registry">
+      <UniqueIdentifier>{bf3203d9-ef9e-4533-b467-218e1626cf51}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="system">
+      <UniqueIdentifier>{90964e02-9beb-4901-8752-5766948777c6}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="export.h">
+      <Filter>dll</Filter>
+    </ClInclude>
+    <ClInclude Include="service.h">
+      <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="method.h">
+      <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="parameter.h">
+      <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="registry.h">
+      <Filter>registry</Filter>
+    </ClInclude>
+    <ClInclude Include="makers.h">
+      <Filter>service</Filter>
+    </ClInclude>
+    <ClInclude Include="system.h">
+      <Filter>system</Filter>
+    </ClInclude>
+    <ClInclude Include="nano">
+      <Filter>dll</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="registry.cpp">
+      <Filter>registry</Filter>
+    </ClCompile>
+    <ClCompile Include="system.cpp">
+      <Filter>system</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
