@@ -39,7 +39,7 @@ class System {
         for ($i = 3; $i < count($this->m_request); $i++) {
             $arg = $this->m_request[$i];
             if (!strpos($arg, ":") || count(explode(":", $arg)) != 2) {
-                out(false, "argument '$arg' is ill formed -> 'url/service/version/method/parameter:value/parameter:value)");
+                out(false, "argument '$arg' is ill formed -> '~/nano.php/\$service/\$version/\$method/\$parameter1:\$value1/\$parameter2:\$value2'");
             }
             $name = trim(explode(":", $arg)[0]);
             $value = trim(explode(":", $arg)[1]);
@@ -59,7 +59,7 @@ class System {
 
     private function showServices() {
         out(true, array(
-                "info" => "append a valid service name to the url", 
+                "info" => "append a valid service name to the url. To see the system documentation use '~/docs' instead of '~/nano.php'", 
                 "services" => $this->m_db->serviceNames()
             )
         );
@@ -79,7 +79,7 @@ class System {
 
     private function showMethods() {
         out(true, array(
-                "info" => "append a valid method + parameters to the url. syntax: service/version/method/param1:value1/param2:value2",
+                "info" => "append a valid method + parameters to the url. syntax: '~/nano.php/\$service/\$version/\$method/\$parameter1:\$value1/\$parameter2:\$value2'",
                 "methods" => $this->m_db->serviceMethods (
                     $this->m_request[0],
                     $this->m_request[1]
