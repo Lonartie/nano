@@ -2,7 +2,7 @@
 
 class Companion {
 
-    private $baseUrl = "http://localhost/nano/nano.php";
+    private $baseUrl = "http://localhost/nano.php";
     private $compsVersion = "0.0.1";
     private $compsName = "service_companions";
     private $name;

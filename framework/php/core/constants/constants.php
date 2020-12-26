@@ -12,7 +12,7 @@ abstract class Constants {
     const DebugEnabled = true;
     const DebugType = DebugType::File;
     const DebugNewLineCharacter = "\n";
-    const DebugFilePath = "C:/xampp/htdocs/nano/logs/log.txt";
+    const DebugFilePath = "C:/xampp/core/logs/log.txt";
     const DebugOnlyLastRequest = true;
     const DebugFlatten = true;
     const DebugFileMaxLines = 1000;

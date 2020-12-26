@@ -1,0 +1,38 @@
+2020-12-26 16-00-19 Debug (Module): : "ServiceDB"
+2020-12-26 16-00-19 Debug (Module): : "Companions"
+2020-12-26 16-00-19 Debug (Module): : "Runner"
+2020-12-26 16-00-19 Debug (Module): : "System"
+2020-12-26 16-00-19 Debug (Module): : "NANO INTERFACE"
+2020-12-26 16-00-19 Debug (System): : "Constructor"
+2020-12-26 16-00-19 Debug (ServiceDB): : "Constructor"
+2020-12-26 16-00-19 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-26 16-00-19 Debug (System): : "Run Requested with"
+2020-12-26 16-00-19 Debug (System): : "Method:  GET"
+2020-12-26 16-00-19 Debug (System): : "Request: "
+2020-12-26 16-00-19 Debug (System): : "JSON:    "
+2020-12-26 16-00-19 Debug (ServiceDB): : "Running SQL: 'SELECT s.Name, d.Description FROM service s, service_details d WHERE s.ID = d.ServiceID'"
+2020-12-26 16-00-19 Debug (ServiceDB): : "Result:"
+2020-12-26 16-00-19 Debug (ServiceDB): : [
+    {
+        "Name": "service_manager",
+        "Description": "managing services"
+    },
+    {
+        "Name": "service_companions",
+        "Description": "Manages companion relations"
+    }
+]
+2020-12-26 16-00-19 Debug (System): : "Returning:"
+2020-12-26 16-00-19 Debug (System): : {
+    "success": true,
+    "data": {
+        "info": "append a valid service name to the url. To see the system documentation use '~\/docs' instead of '~\/nano.php'",
+        "services": {
+            "service_manager": "managing services",
+            "service_companions": "Manages companion relations"
+        }
+    }
+}
+2020-12-26 16-00-19 Debug (System): : "Destructor"
+2020-12-26 16-00-19 Debug (ServiceDB): : "Destructor"
+2020-12-26 16-00-19 Debug (ServiceDB): : "Disconnecting from Database"
