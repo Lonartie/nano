@@ -1,0 +1,24 @@
+class math extends nano::service
+{
+	public function name() {}
+	public function longName() {}
+	public function description() {}
+	public function version() {}
+
+	public function lastDate() {}
+	public function setLastDate($date) {}
+	
+	public function add($a, &b) { return a + b; }
+	public function sub($a, &b) { return a - b; }
+	public function mul($a, &b) { return a * b; }
+	public function div($a, &b) { return a / b; }
+
+	private $m_lastDate;
+};
+
+NANO_REGISTER_FIELD("last_call", "lastDate", "setLastDate");
+
+NANO_REGISTER_ACTION(GET, "add", "add", "a", "b");
+NANO_REGISTER_ACTION(GET, "sub", "sub", "a", "b");
+NANO_REGISTER_ACTION(GET, "mul", "mul", "a", "b");
+NANO_REGISTER_ACTION(GET, "div", "div", "a", "b");

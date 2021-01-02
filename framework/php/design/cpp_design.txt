@@ -1,0 +1,25 @@
+class math : nano::service
+{
+public:
+	std::string name() const override;
+	std::string longName() const override;
+	std::string description() const override;
+	std::string version() const override;
+
+	std::string lastDate() const;
+	void setLastDate(std::string date);
+	
+	template <typename T> T add(T a, T b) { return a + b; }
+	template <typename T> T sub(T a, T b) { return a - b; }
+	template <typename T> T mul(T a, T b) { return a * b; }
+	template <typename T> T div(T a, T b) { return a / b; }
+
+private:
+	std::string m_lastDate;
+};
+
+NANO_REGISTER_FIELD("last_call", math::lastDate, math::setLastDate);
+NANO_REGISTER_ACTION(GET, "add", math::add<float>, a, b);
+NANO_REGISTER_ACTION(GET, "sub", math::sub<float>, a, b);
+NANO_REGISTER_ACTION(GET, "mul", math::mul<float>, a, b);
+NANO_REGISTER_ACTION(GET, "div", math::div<float>, a, b);

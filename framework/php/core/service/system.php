@@ -1,7 +1,7 @@
 <?php
 include_once(dirname(__FILE__).'/../debugging/debug.php');
+include_once(dirname(__FILE__).'/runner/runner.php');
 include_once(dirname(__FILE__).'/servicedb.php');
-include_once(dirname(__FILE__).'/runner.php');
 include_once(dirname(__FILE__).'/output.php');
 
 Debug::Log("System", "Module");

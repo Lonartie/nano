@@ -1,0 +1,684 @@
+2020-12-26 16-23-40 Debug (Module): : "ServiceDB"
+2020-12-26 16-23-40 Debug (Module): : "CompanionsDB"
+2020-12-26 16-23-40 Debug (Module): : "Runner"
+2020-12-26 16-23-40 Debug (Module): : "System"
+2020-12-26 16-23-40 Debug (Module): : "NANO INTERFACE"
+2020-12-26 16-23-40 Debug (System): : "Constructor"
+2020-12-26 16-23-40 Debug (ServiceDB): : "Constructor"
+2020-12-26 16-23-40 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-26 16-23-40 Debug (System): : "Run Requested with"
+2020-12-26 16-23-40 Debug (System): : "Method:  GET"
+2020-12-26 16-23-40 Debug (System): : "Request: "
+2020-12-26 16-23-40 Debug (System): : "JSON:    "
+2020-12-26 16-23-40 Debug (ServiceDB): : "Running SQL: 'SELECT s.Name, d.Description FROM service s, service_details d WHERE s.ID = d.ServiceID'"
+2020-12-26 16-23-40 Debug (ServiceDB): : "Result:"
+2020-12-26 16-23-40 Debug (ServiceDB): : [
+    {
+        "Name": "service_manager",
+        "Description": "managing services"
+    },
+    {
+        "Name": "service_companions",
+        "Description": "Manages companion relations"
+    }
+]
+2020-12-26 16-23-40 Debug (Output): : "Returning:"
+2020-12-26 16-23-40 Debug (Output): : {
+    "success": true,
+    "data": {
+        "info": "append a valid service name to the url. To see the system documentation use '~\/docs' instead of '~\/nano.php'",
+        "services": {
+            "service_manager": "managing services",
+            "service_companions": "Manages companion relations"
+        }
+    }
+}
+2020-12-26 16-23-40 Debug (System): : "Destructor"
+2020-12-26 16-23-40 Debug (ServiceDB): : "Destructor"
+2020-12-26 16-23-40 Debug (ServiceDB): : "Disconnecting from Database"
+2020-12-26 16-34-30 Debug (Module): : "ServiceDB"
+2020-12-26 16-34-30 Debug (Module): : "CompanionsDB"
+2020-12-26 16-34-30 Debug (Module): : "Runner"
+2020-12-26 16-34-30 Debug (Module): : "System"
+2020-12-26 16-34-30 Debug (Module): : "NANO INTERFACE"
+2020-12-26 16-34-30 Debug (System): : "Constructor"
+2020-12-26 16-34-30 Debug (ServiceDB): : "Constructor"
+2020-12-26 16-34-30 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-26 16-34-30 Debug (System): : "Run Requested with"
+2020-12-26 16-34-30 Debug (System): : "Method:  GET"
+2020-12-26 16-34-30 Debug (System): : "Request: service_manager"
+2020-12-26 16-34-30 Debug (System): : "JSON:    "
+2020-12-26 16-34-30 Debug (ServiceDB): : "Running SQL: 'SELECT v.VersionString, v.ReleaseDate FROM service s, service_versions v WHERE s.ID = v.ServiceID AND s.Name = 'service_manager''"
+2020-12-26 16-34-31 Debug (ServiceDB): : "Result:"
+2020-12-26 16-34-31 Debug (ServiceDB): : [
+    {
+        "VersionString": "0.0.1",
+        "ReleaseDate": "2020-12-25 16:29:00"
+    }
+]
+2020-12-26 16-34-31 Debug (Output): : "Returning:"
+2020-12-26 16-34-31 Debug (Output): : {
+    "success": true,
+    "data": {
+        "info": "append a valid version to the url",
+        "versions": {
+            "0.0.1": "2020-12-25 16:29:00"
+        }
+    }
+}
+2020-12-26 16-34-31 Debug (System): : "Destructor"
+2020-12-26 16-34-31 Debug (ServiceDB): : "Destructor"
+2020-12-26 16-34-31 Debug (ServiceDB): : "Disconnecting from Database"
+2020-12-26 16-34-38 Debug (Module): : "ServiceDB"
+2020-12-26 16-34-38 Debug (Module): : "CompanionsDB"
+2020-12-26 16-34-38 Debug (Module): : "Runner"
+2020-12-26 16-34-38 Debug (Module): : "System"
+2020-12-26 16-34-39 Debug (Module): : "NANO INTERFACE"
+2020-12-26 16-34-39 Debug (System): : "Constructor"
+2020-12-26 16-34-39 Debug (ServiceDB): : "Constructor"
+2020-12-26 16-34-39 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-26 16-34-39 Debug (System): : "Run Requested with"
+2020-12-26 16-34-39 Debug (System): : "Method:  GET"
+2020-12-26 16-34-39 Debug (System): : "Request: service_manager | 0.0.1"
+2020-12-26 16-34-39 Debug (System): : "JSON:    "
+2020-12-26 16-34-39 Debug (ServiceDB): : "Running SQL: 'SELECT v.ID FROM service s, service_versions v WHERE s.ID = v.ServiceID AND s.Name = 'service_manager' AND v.VersionString = '0.0.1''"
+2020-12-26 16-34-39 Debug (ServiceDB): : "Result:"
+2020-12-26 16-34-39 Debug (ServiceDB): : [
+    {
+        "ID": "43"
+    }
+]
+2020-12-26 16-34-39 Debug (ServiceDB): : "Running SQL: 'SELECT ID, Name FROM service_methods WHERE VersionID = '43''"
+2020-12-26 16-34-39 Debug (ServiceDB): : "Result:"
+2020-12-26 16-34-39 Debug (ServiceDB): : [
+    {
+        "ID": "135",
+        "Name": "add"
+    },
+    {
+        "ID": "136",
+        "Name": "remove_version"
+    },
+    {
+        "ID": "137",
+        "Name": "remove_all"
+    }
+]
+2020-12-26 16-34-39 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 135'"
+2020-12-26 16-34-39 Debug (ServiceDB): : "Result:"
+2020-12-26 16-34-39 Debug (ServiceDB): : [
+    {
+        "ParameterName": "bin"
+    }
+]
+2020-12-26 16-34-39 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 136'"
+2020-12-26 16-34-39 Debug (ServiceDB): : "Result:"
+2020-12-26 16-34-39 Debug (ServiceDB): : [
+    {
+        "ParameterName": "name"
+    },
+    {
+        "ParameterName": "version"
+    }
+]
+2020-12-26 16-34-39 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 137'"
+2020-12-26 16-34-39 Debug (ServiceDB): : "Result:"
+2020-12-26 16-34-39 Debug (ServiceDB): : [
+    {
+        "ParameterName": "name"
+    }
+]
+2020-12-26 16-34-39 Debug (Output): : "Returning:"
+2020-12-26 16-34-39 Debug (Output): : {
+    "success": true,
+    "data": {
+        "info": "append a valid method + parameters to the url. syntax: '~\/nano.php\/$service\/$version\/$method\/$parameter1:$value1\/$parameter2:$value2'",
+        "methods": {
+            "add": [
+                "bin"
+            ],
+            "remove_version": [
+                "name",
+                "version"
+            ],
+            "remove_all": [
+                "name"
+            ]
+        }
+    }
+}
+2020-12-26 16-34-39 Debug (System): : "Destructor"
+2020-12-26 16-34-39 Debug (ServiceDB): : "Destructor"
+2020-12-26 16-34-39 Debug (ServiceDB): : "Disconnecting from Database"
+2020-12-26 16-35-16 Debug (Module): : "ServiceDB"
+2020-12-26 16-35-16 Debug (Module): : "CompanionsDB"
+2020-12-26 16-35-16 Debug (Module): : "Runner"
+2020-12-26 16-35-16 Debug (Module): : "System"
+2020-12-26 16-35-16 Debug (Module): : "NANO INTERFACE"
+2020-12-26 16-35-16 Debug (System): : "Constructor"
+2020-12-26 16-35-16 Debug (ServiceDB): : "Constructor"
+2020-12-26 16-35-16 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-26 16-35-16 Debug (System): : "Run Requested with"
+2020-12-26 16-35-16 Debug (System): : "Method:  GET"
+2020-12-26 16-35-16 Debug (System): : "Request: service_companions"
+2020-12-26 16-35-16 Debug (System): : "JSON:    "
+2020-12-26 16-35-16 Debug (ServiceDB): : "Running SQL: 'SELECT v.VersionString, v.ReleaseDate FROM service s, service_versions v WHERE s.ID = v.ServiceID AND s.Name = 'service_companions''"
+2020-12-26 16-35-16 Debug (ServiceDB): : "Result:"
+2020-12-26 16-35-16 Debug (ServiceDB): : [
+    {
+        "VersionString": "0.0.1",
+        "ReleaseDate": "2020-12-25 16:29:00"
+    }
+]
+2020-12-26 16-35-16 Debug (Output): : "Returning:"
+2020-12-26 16-35-16 Debug (Output): : {
+    "success": true,
+    "data": {
+        "info": "append a valid version to the url",
+        "versions": {
+            "0.0.1": "2020-12-25 16:29:00"
+        }
+    }
+}
+2020-12-26 16-35-16 Debug (System): : "Destructor"
+2020-12-26 16-35-16 Debug (ServiceDB): : "Destructor"
+2020-12-26 16-35-16 Debug (ServiceDB): : "Disconnecting from Database"
+2020-12-28 21-24-07 Debug (Module): : "ServiceDB"
+2020-12-28 21-24-07 Debug (Module): : "CompanionsDB"
+2020-12-28 21-24-07 Debug (Module): : "Runner"
+2020-12-28 21-24-07 Debug (Module): : "System"
+2020-12-28 21-24-07 Debug (Module): : "NANO INTERFACE"
+2020-12-28 21-24-07 Debug (System): : "Constructor"
+2020-12-28 21-24-07 Debug (ServiceDB): : "Constructor"
+2020-12-28 21-24-07 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-28 21-24-07 Debug (System): : "Run Requested with"
+2020-12-28 21-24-07 Debug (System): : "Method:  GET"
+2020-12-28 21-24-07 Debug (System): : "Request: "
+2020-12-28 21-24-07 Debug (System): : "JSON:    "
+2020-12-28 21-24-07 Debug (ServiceDB): : "Running SQL: 'SELECT s.Name, d.Description FROM service s, service_details d WHERE s.ID = d.ServiceID'"
+2020-12-28 21-24-07 Debug (ServiceDB): : "Result:"
+2020-12-28 21-24-07 Debug (ServiceDB): : [
+    {
+        "Name": "service_manager",
+        "Description": "managing services"
+    },
+    {
+        "Name": "service_companions",
+        "Description": "Manages companion relations"
+    }
+]
+2020-12-28 21-24-07 Debug (Output): : "Returning:"
+2020-12-28 21-24-07 Debug (Output): : {
+    "success": true,
+    "data": {
+        "info": "append a valid service name to the url. To see the system documentation use '~\/docs' instead of '~\/nano.php'",
+        "services": {
+            "service_manager": "managing services",
+            "service_companions": "Manages companion relations"
+        }
+    }
+}
+2020-12-28 21-24-07 Debug (System): : "Destructor"
+2020-12-28 21-24-07 Debug (ServiceDB): : "Destructor"
+2020-12-28 21-24-07 Debug (ServiceDB): : "Disconnecting from Database"
+2020-12-28 21-24-23 Debug (Module): : "ServiceDB"
+2020-12-28 21-24-23 Debug (Module): : "CompanionsDB"
+2020-12-28 21-24-23 Debug (Module): : "Runner"
+2020-12-28 21-24-23 Debug (Module): : "System"
+2020-12-28 21-24-23 Debug (Module): : "NANO INTERFACE"
+2020-12-28 21-24-23 Debug (System): : "Constructor"
+2020-12-28 21-24-23 Debug (ServiceDB): : "Constructor"
+2020-12-28 21-24-23 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-28 21-24-23 Debug (System): : "Run Requested with"
+2020-12-28 21-24-23 Debug (System): : "Method:  GET"
+2020-12-28 21-24-23 Debug (System): : "Request: "
+2020-12-28 21-24-23 Debug (System): : "JSON:    "
+2020-12-28 21-24-23 Debug (ServiceDB): : "Running SQL: 'SELECT s.Name, d.Description FROM service s, service_details d WHERE s.ID = d.ServiceID'"
+2020-12-28 21-24-23 Debug (ServiceDB): : "Result:"
+2020-12-28 21-24-23 Debug (ServiceDB): : [
+    {
+        "Name": "service_manager",
+        "Description": "managing services"
+    },
+    {
+        "Name": "service_companions",
+        "Description": "Manages companion relations"
+    }
+]
+2020-12-28 21-24-23 Debug (Output): : "Returning:"
+2020-12-28 21-24-23 Debug (Output): : {
+    "success": true,
+    "data": {
+        "info": "append a valid service name to the url. To see the system documentation use '~\/docs' instead of '~\/nano.php'",
+        "services": {
+            "service_manager": "managing services",
+            "service_companions": "Manages companion relations"
+        }
+    }
+}
+2020-12-28 21-24-23 Debug (System): : "Destructor"
+2020-12-28 21-24-23 Debug (ServiceDB): : "Destructor"
+2020-12-28 21-24-23 Debug (ServiceDB): : "Disconnecting from Database"
+2020-12-28 21-24-27 Debug (Module): : "ServiceDB"
+2020-12-28 21-24-27 Debug (Module): : "CompanionsDB"
+2020-12-28 21-24-27 Debug (Module): : "Runner"
+2020-12-28 21-24-27 Debug (Module): : "System"
+2020-12-28 21-24-27 Debug (Module): : "NANO INTERFACE"
+2020-12-28 21-24-27 Debug (System): : "Constructor"
+2020-12-28 21-24-27 Debug (ServiceDB): : "Constructor"
+2020-12-28 21-24-27 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-28 21-24-27 Debug (System): : "Run Requested with"
+2020-12-28 21-24-27 Debug (System): : "Method:  GET"
+2020-12-28 21-24-27 Debug (System): : "Request: service_manager | 0.0.1 | remove_all | name:comps"
+2020-12-28 21-24-27 Debug (System): : "JSON:    "
+2020-12-28 21-24-27 Debug (ServiceDB): : "Running SQL: 'SELECT s.Name, d.CompleteName, d.Description, d.ServiceType, v.VersionString, v.ReleaseNotes, v.ReleaseDate, m.Name AS Method, p.ParameterName, p.Optional FROM service s, service_details d, service_versions v, service_methods m, service_method_parameters p WHERE d.ServiceID = s.ID AND v.ServiceID = s.ID AND m.ServiceID = s.ID AND m.VersionID = v.ID AND p.MethodID = m.ID AND s.Name = 'service_manager' AND v.VersionString = '0.0.1' '"
+2020-12-28 21-24-28 Debug (ServiceDB): : "Result:"
+2020-12-28 21-24-28 Debug (ServiceDB): : [
+    {
+        "Name": "service_manager",
+        "CompleteName": "Service manager",
+        "Description": "managing services",
+        "ServiceType": "PHP",
+        "VersionString": "0.0.1",
+        "ReleaseNotes": "",
+        "ReleaseDate": "2020-12-25 16:29:00",
+        "Method": "add",
+        "ParameterName": "bin",
+        "Optional": "0"
+    },
+    {
+        "Name": "service_manager",
+        "CompleteName": "Service manager",
+        "Description": "managing services",
+        "ServiceType": "PHP",
+        "VersionString": "0.0.1",
+        "ReleaseNotes": "",
+        "ReleaseDate": "2020-12-25 16:29:00",
+        "Method": "remove_version",
+        "ParameterName": "name",
+        "Optional": "0"
+    },
+    {
+        "Name": "service_manager",
+        "CompleteName": "Service manager",
+        "Description": "managing services",
+        "ServiceType": "PHP",
+        "VersionString": "0.0.1",
+        "ReleaseNotes": "",
+        "ReleaseDate": "2020-12-25 16:29:00",
+        "Method": "remove_version",
+        "ParameterName": "version",
+        "Optional": "0"
+    },
+    {
+        "Name": "service_manager",
+        "CompleteName": "Service manager",
+        "Description": "managing services",
+        "ServiceType": "PHP",
+        "VersionString": "0.0.1",
+        "ReleaseNotes": "",
+        "ReleaseDate": "2020-12-25 16:29:00",
+        "Method": "remove_all",
+        "ParameterName": "name",
+        "Optional": "0"
+    }
+]
+2020-12-28 21-24-28 Debug (System): : "Got information: "
+2020-12-28 21-24-28 Debug (System): : {
+    "Name": "service_manager",
+    "Version": "0.0.1",
+    "Method": "remove_all",
+    "Description": "managing services",
+    "ReleaseDate": "2020-12-25 16:29:00",
+    "ReleaseNotes": "",
+    "ServiceType": "PHP",
+    "Parameters": {
+        "name": "0"
+    }
+}
+2020-12-28 21-24-28 Debug (Runner): : "Constructor"
+2020-12-28 21-24-28 Debug (Runner): : "Got arguments:"
+2020-12-28 21-24-28 Debug (Runner): : {
+    "name": "comps"
+}
+2020-12-28 21-24-28 Debug (Runner): : "Destructor"
+2020-12-28 21-24-28 Debug (System): : "Destructor"
+2020-12-28 21-24-28 Debug (ServiceDB): : "Destructor"
+2020-12-28 21-24-28 Debug (ServiceDB): : "Disconnecting from Database"
+2020-12-31 13-49-00 Debug (Module): : "ServiceDB"
+2020-12-31 13-49-00 Debug (Module): : "CompanionsDB"
+2020-12-31 13-49-00 Debug (Module): : "Runner"
+2020-12-31 13-49-00 Debug (Module): : "System"
+2020-12-31 13-49-00 Debug (Module): : "NANO INTERFACE"
+2020-12-31 13-49-00 Debug (System): : "Constructor"
+2020-12-31 13-49-00 Debug (ServiceDB): : "Constructor"
+2020-12-31 13-49-00 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-31 13-49-00 Debug (System): : "Run Requested with"
+2020-12-31 13-49-00 Debug (System): : "Method:  GET"
+2020-12-31 13-49-00 Debug (System): : "Request: "
+2020-12-31 13-49-00 Debug (System): : "JSON:    "
+2020-12-31 13-49-00 Debug (ServiceDB): : "Running SQL: 'SELECT s.Name, d.Description FROM service s, service_details d WHERE s.ID = d.ServiceID'"
+2020-12-31 13-49-00 Debug (ServiceDB): : "Result:"
+2020-12-31 13-49-00 Debug (ServiceDB): : [
+    {
+        "Name": "service_manager",
+        "Description": "managing services"
+    },
+    {
+        "Name": "service_companions",
+        "Description": "Manages companion relations"
+    }
+]
+2020-12-31 13-49-00 Debug (Output): : "Returning:"
+2020-12-31 13-49-00 Debug (Output): : {
+    "success": true,
+    "data": {
+        "info": "append a valid service name to the url. To see the system documentation use '~\/docs' instead of '~\/nano.php'",
+        "services": {
+            "service_manager": "managing services",
+            "service_companions": "Manages companion relations"
+        }
+    }
+}
+2020-12-31 13-49-00 Debug (System): : "Destructor"
+2020-12-31 13-49-00 Debug (ServiceDB): : "Destructor"
+2020-12-31 13-49-00 Debug (ServiceDB): : "Disconnecting from Database"
+2020-12-31 13-50-22 Debug (Module): : "ServiceDB"
+2020-12-31 13-50-22 Debug (Module): : "CompanionsDB"
+2020-12-31 13-50-23 Debug (Module): : "Runner"
+2020-12-31 13-50-23 Debug (Module): : "System"
+2020-12-31 13-50-23 Debug (Module): : "NANO INTERFACE"
+2020-12-31 13-50-23 Debug (System): : "Constructor"
+2020-12-31 13-50-23 Debug (ServiceDB): : "Constructor"
+2020-12-31 13-50-23 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-31 13-50-23 Debug (System): : "Run Requested with"
+2020-12-31 13-50-23 Debug (System): : "Method:  GET"
+2020-12-31 13-50-23 Debug (System): : "Request: math"
+2020-12-31 13-50-23 Debug (System): : "JSON:    "
+2020-12-31 13-50-23 Debug (ServiceDB): : "Running SQL: 'SELECT v.VersionString, v.ReleaseDate FROM service s, service_versions v WHERE s.ID = v.ServiceID AND s.Name = 'math''"
+2020-12-31 13-50-23 Debug (ServiceDB): : "Result:"
+2020-12-31 13-50-23 Debug (ServiceDB): : []
+2020-12-31 13-50-23 Debug (Output): : "Returning:"
+2020-12-31 13-50-23 Debug (Output): : {
+    "success": false,
+    "error": "Service 'math' not found!"
+}
+2020-12-31 13-50-23 Debug (System): : "Destructor"
+2020-12-31 13-50-23 Debug (ServiceDB): : "Destructor"
+2020-12-31 13-50-23 Debug (ServiceDB): : "Disconnecting from Database"
+2020-12-31 13-50-30 Debug (Module): : "ServiceDB"
+2020-12-31 13-50-30 Debug (Module): : "CompanionsDB"
+2020-12-31 13-50-30 Debug (Module): : "Runner"
+2020-12-31 13-50-30 Debug (Module): : "System"
+2020-12-31 13-50-30 Debug (Module): : "NANO INTERFACE"
+2020-12-31 13-50-30 Debug (System): : "Constructor"
+2020-12-31 13-50-30 Debug (ServiceDB): : "Constructor"
+2020-12-31 13-50-30 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-31 13-50-30 Debug (System): : "Run Requested with"
+2020-12-31 13-50-30 Debug (System): : "Method:  GET"
+2020-12-31 13-50-30 Debug (System): : "Request: service_manager"
+2020-12-31 13-50-30 Debug (System): : "JSON:    "
+2020-12-31 13-50-30 Debug (ServiceDB): : "Running SQL: 'SELECT v.VersionString, v.ReleaseDate FROM service s, service_versions v WHERE s.ID = v.ServiceID AND s.Name = 'service_manager''"
+2020-12-31 13-50-30 Debug (ServiceDB): : "Result:"
+2020-12-31 13-50-30 Debug (ServiceDB): : [
+    {
+        "VersionString": "0.0.1",
+        "ReleaseDate": "2020-12-25 16:29:00"
+    }
+]
+2020-12-31 13-50-30 Debug (Output): : "Returning:"
+2020-12-31 13-50-30 Debug (Output): : {
+    "success": true,
+    "data": {
+        "info": "append a valid version to the url",
+        "versions": {
+            "0.0.1": "2020-12-25 16:29:00"
+        }
+    }
+}
+2020-12-31 13-50-30 Debug (System): : "Destructor"
+2020-12-31 13-50-30 Debug (ServiceDB): : "Destructor"
+2020-12-31 13-50-30 Debug (ServiceDB): : "Disconnecting from Database"
+2020-12-31 13-55-52 Debug (Module): : "ServiceDB"
+2020-12-31 13-55-52 Debug (Module): : "CompanionsDB"
+2020-12-31 13-55-52 Debug (Module): : "Runner"
+2020-12-31 13-55-52 Debug (Module): : "System"
+2020-12-31 13-55-52 Debug (Module): : "NANO INTERFACE"
+2020-12-31 13-55-52 Debug (System): : "Constructor"
+2020-12-31 13-55-52 Debug (ServiceDB): : "Constructor"
+2020-12-31 13-55-52 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-31 13-55-52 Debug (System): : "Run Requested with"
+2020-12-31 13-55-52 Debug (System): : "Method:  GET"
+2020-12-31 13-55-52 Debug (System): : "Request: service_manager | 0.0.1"
+2020-12-31 13-55-52 Debug (System): : "JSON:    "
+2020-12-31 13-55-52 Debug (ServiceDB): : "Running SQL: 'SELECT v.ID FROM service s, service_versions v WHERE s.ID = v.ServiceID AND s.Name = 'service_manager' AND v.VersionString = '0.0.1''"
+2020-12-31 13-55-52 Debug (ServiceDB): : "Result:"
+2020-12-31 13-55-52 Debug (ServiceDB): : [
+    {
+        "ID": "43"
+    }
+]
+2020-12-31 13-55-52 Debug (ServiceDB): : "Running SQL: 'SELECT ID, Name FROM service_methods WHERE VersionID = '43''"
+2020-12-31 13-55-52 Debug (ServiceDB): : "Result:"
+2020-12-31 13-55-52 Debug (ServiceDB): : [
+    {
+        "ID": "135",
+        "Name": "add"
+    },
+    {
+        "ID": "136",
+        "Name": "remove_version"
+    },
+    {
+        "ID": "137",
+        "Name": "remove_all"
+    }
+]
+2020-12-31 13-55-52 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 135'"
+2020-12-31 13-55-52 Debug (ServiceDB): : "Result:"
+2020-12-31 13-55-52 Debug (ServiceDB): : [
+    {
+        "ParameterName": "bin"
+    }
+]
+2020-12-31 13-55-52 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 136'"
+2020-12-31 13-55-52 Debug (ServiceDB): : "Result:"
+2020-12-31 13-55-52 Debug (ServiceDB): : [
+    {
+        "ParameterName": "name"
+    },
+    {
+        "ParameterName": "version"
+    }
+]
+2020-12-31 13-55-52 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 137'"
+2020-12-31 13-55-52 Debug (ServiceDB): : "Result:"
+2020-12-31 13-55-52 Debug (ServiceDB): : [
+    {
+        "ParameterName": "name"
+    }
+]
+2020-12-31 13-55-52 Debug (Output): : "Returning:"
+2020-12-31 13-55-52 Debug (Output): : {
+    "success": true,
+    "data": {
+        "info": "append a valid method + parameters to the url. syntax: '~\/nano.php\/$service\/$version\/$method\/$parameter1:$value1\/$parameter2:$value2'",
+        "methods": {
+            "add": [
+                "bin"
+            ],
+            "remove_version": [
+                "name",
+                "version"
+            ],
+            "remove_all": [
+                "name"
+            ]
+        }
+    }
+}
+2020-12-31 13-55-52 Debug (System): : "Destructor"
+2020-12-31 13-55-52 Debug (ServiceDB): : "Destructor"
+2020-12-31 13-55-52 Debug (ServiceDB): : "Disconnecting from Database"
+2020-12-31 16-52-57 Debug (Module): : "ServiceDB"
+2020-12-31 16-52-57 Debug (Module): : "CompanionsDB"
+2020-12-31 16-52-57 Debug (Module): : "Runner"
+2020-12-31 16-52-57 Debug (Module): : "System"
+2020-12-31 16-52-57 Debug (Module): : "NANO INTERFACE"
+2020-12-31 16-52-57 Debug (System): : "Constructor"
+2020-12-31 16-52-57 Debug (ServiceDB): : "Constructor"
+2020-12-31 16-52-57 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2020-12-31 16-52-57 Debug (System): : "Run Requested with"
+2020-12-31 16-52-57 Debug (System): : "Method:  GET"
+2020-12-31 16-52-57 Debug (System): : "Request: service_manager | 0.0.1"
+2020-12-31 16-52-57 Debug (System): : "JSON:    "
+2020-12-31 16-52-57 Debug (ServiceDB): : "Running SQL: 'SELECT v.ID FROM service s, service_versions v WHERE s.ID = v.ServiceID AND s.Name = 'service_manager' AND v.VersionString = '0.0.1''"
+2020-12-31 16-52-57 Debug (ServiceDB): : "Result:"
+2020-12-31 16-52-57 Debug (ServiceDB): : [
+    {
+        "ID": "43"
+    }
+]
+2020-12-31 16-52-57 Debug (ServiceDB): : "Running SQL: 'SELECT ID, Name FROM service_methods WHERE VersionID = '43''"
+2020-12-31 16-52-57 Debug (ServiceDB): : "Result:"
+2020-12-31 16-52-57 Debug (ServiceDB): : [
+    {
+        "ID": "135",
+        "Name": "add"
+    },
+    {
+        "ID": "136",
+        "Name": "remove_version"
+    },
+    {
+        "ID": "137",
+        "Name": "remove_all"
+    }
+]
+2020-12-31 16-52-57 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 135'"
+2020-12-31 16-52-57 Debug (ServiceDB): : "Result:"
+2020-12-31 16-52-57 Debug (ServiceDB): : [
+    {
+        "ParameterName": "bin"
+    }
+]
+2020-12-31 16-52-57 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 136'"
+2020-12-31 16-52-57 Debug (ServiceDB): : "Result:"
+2020-12-31 16-52-57 Debug (ServiceDB): : [
+    {
+        "ParameterName": "name"
+    },
+    {
+        "ParameterName": "version"
+    }
+]
+2020-12-31 16-52-57 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 137'"
+2020-12-31 16-52-57 Debug (ServiceDB): : "Result:"
+2020-12-31 16-52-57 Debug (ServiceDB): : [
+    {
+        "ParameterName": "name"
+    }
+]
+2020-12-31 16-52-57 Debug (Output): : "Returning:"
+2020-12-31 16-52-57 Debug (Output): : {
+    "success": true,
+    "data": {
+        "info": "append a valid method + parameters to the url. syntax: '~\/nano.php\/$service\/$version\/$method\/$parameter1:$value1\/$parameter2:$value2'",
+        "methods": {
+            "add": [
+                "bin"
+            ],
+            "remove_version": [
+                "name",
+                "version"
+            ],
+            "remove_all": [
+                "name"
+            ]
+        }
+    }
+}
+2020-12-31 16-52-57 Debug (System): : "Destructor"
+2020-12-31 16-52-57 Debug (ServiceDB): : "Destructor"
+2020-12-31 16-52-57 Debug (ServiceDB): : "Disconnecting from Database"
+2021-01-02 13-50-50 Debug (Module): : "ServiceDB"
+2021-01-02 13-50-50 Debug (Module): : "CompanionsDB"
+2021-01-02 13-50-50 Debug (Module): : "Runner"
+2021-01-02 13-50-50 Debug (Module): : "System"
+2021-01-02 13-50-50 Debug (Module): : "NANO INTERFACE"
+2021-01-02 13-50-50 Debug (System): : "Constructor"
+2021-01-02 13-50-50 Debug (ServiceDB): : "Constructor"
+2021-01-02 13-50-50 Debug (ServiceDB): : "Connecting to Database 'nano'"
+2021-01-02 13-50-50 Debug (System): : "Run Requested with"
+2021-01-02 13-50-50 Debug (System): : "Method:  GET"
+2021-01-02 13-50-50 Debug (System): : "Request: service_manager | 0.0.1"
+2021-01-02 13-50-50 Debug (System): : "JSON:    "
+2021-01-02 13-50-50 Debug (ServiceDB): : "Running SQL: 'SELECT v.ID FROM service s, service_versions v WHERE s.ID = v.ServiceID AND s.Name = 'service_manager' AND v.VersionString = '0.0.1''"
+2021-01-02 13-50-51 Debug (ServiceDB): : "Result:"
+2021-01-02 13-50-51 Debug (ServiceDB): : [
+    {
+        "ID": "43"
+    }
+]
+2021-01-02 13-50-51 Debug (ServiceDB): : "Running SQL: 'SELECT ID, Name FROM service_methods WHERE VersionID = '43''"
+2021-01-02 13-50-51 Debug (ServiceDB): : "Result:"
+2021-01-02 13-50-51 Debug (ServiceDB): : [
+    {
+        "ID": "135",
+        "Name": "add"
+    },
+    {
+        "ID": "136",
+        "Name": "remove_version"
+    },
+    {
+        "ID": "137",
+        "Name": "remove_all"
+    }
+]
+2021-01-02 13-50-51 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 135'"
+2021-01-02 13-50-51 Debug (ServiceDB): : "Result:"
+2021-01-02 13-50-51 Debug (ServiceDB): : [
+    {
+        "ParameterName": "bin"
+    }
+]
+2021-01-02 13-50-51 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 136'"
+2021-01-02 13-50-51 Debug (ServiceDB): : "Result:"
+2021-01-02 13-50-51 Debug (ServiceDB): : [
+    {
+        "ParameterName": "name"
+    },
+    {
+        "ParameterName": "version"
+    }
+]
+2021-01-02 13-50-51 Debug (ServiceDB): : "Running SQL: 'SELECT ParameterName FROM service_method_parameters WHERE MethodID = 137'"
+2021-01-02 13-50-51 Debug (ServiceDB): : "Result:"
+2021-01-02 13-50-51 Debug (ServiceDB): : [
+    {
+        "ParameterName": "name"
+    }
+]
+2021-01-02 13-50-51 Debug (Output): : "Returning:"
+2021-01-02 13-50-51 Debug (Output): : {
+    "success": true,
+    "data": {
+        "info": "append a valid method + parameters to the url. syntax: '~\/nano.php\/$service\/$version\/$method\/$parameter1:$value1\/$parameter2:$value2'",
+        "methods": {
+            "add": [
+                "bin"
+            ],
+            "remove_version": [
+                "name",
+                "version"
+            ],
+            "remove_all": [
+                "name"
+            ]
+        }
+    }
+}
+2021-01-02 13-50-51 Debug (System): : "Destructor"
+2021-01-02 13-50-51 Debug (ServiceDB): : "Destructor"
+2021-01-02 13-50-51 Debug (ServiceDB): : "Disconnecting from Database"

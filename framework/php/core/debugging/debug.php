@@ -19,7 +19,6 @@ class Debug {
 
     public static function Log($obj = null, $label = null) {
         if (Debug::$m_enabled) {
-
             if (Debug::$m_type == DebugType::File) {                
                 if (!is_dir(dirname(Debug::$m_filePath))) {
                     mkdir(dirname(Debug::$m_filePath), 0777, true);

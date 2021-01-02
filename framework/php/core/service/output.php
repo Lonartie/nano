@@ -1,7 +1,6 @@
 <?php
 
 function out($success, $obj) {
-
     if ($obj === false) {
         return out(false, "unkown error occurred");
     }
@@ -20,8 +19,8 @@ function out($success, $obj) {
         }
     }
     
-    Debug::Log("Returning:", "System");
-    Debug::Log($res, "System");
+    Debug::Log("Returning:", "Output");
+    Debug::Log($res, "Output");
     $json = json_encode($res, JSON_PRETTY_PRINT);
     echo $json;
     exit(0);
