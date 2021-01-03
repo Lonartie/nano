@@ -8,8 +8,8 @@ include_once 'companion.php';
 
 class math extends NanoService {
 
-    public function shortName() { return "php-math"; } 
-    public function longName() { return "php-math lib"; } 
+    public function shortName() { return "php_math"; } 
+    public function longName() { return "php_math lib"; } 
     public function description() { return "php_math service implementation"; } 
     public function version() { return "0.0.1"; }
     public function methods() 

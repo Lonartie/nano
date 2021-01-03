@@ -1,5 +1,10 @@
 <?php
 
+// include all implementations here!
+
+include_once(dirname(__FILE__)."/php_runner.php");
+include_once(dirname(__FILE__)."/exe_runner.php");
+
 /// @brief base class for all types of runners.
 ///        a runner executes or retrieves information from a service.
 ///        a runner is defined (and later selected) by the mainFile.

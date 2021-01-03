@@ -8,8 +8,6 @@ Debug::Log("Runner", "Module");
 
 class Runner {
 
-    private $m_phpExec = "C:/xampp/php/php.exe";
-
     public function __construct() {
         Debug::Log("Constructor", "Runner");
     }

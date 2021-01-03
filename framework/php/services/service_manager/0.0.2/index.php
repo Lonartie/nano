@@ -8,13 +8,12 @@ include_once 'parameter.php';
 if (!class_exists('Uploader')) {
 class ServiceManager extends NanoService {
 
-    private $exePath;
-    private $phpPath; 
+    private $servicesPath;
     
     public function shortName() { return "service_manager"; } 
     public function longName() { return "Service manager"; } 
     public function description() { return "managing services"; } 
-    public function version() { return "0.0.1"; }
+    public function version() { return "0.0.2"; }
     public function methods() {
         return array (
             new Method("add", array (
@@ -31,8 +30,7 @@ class ServiceManager extends NanoService {
     }
 
     public function __construct() {
-        $this->exePath = $_SERVER['DOCUMENT_ROOT'] . "/../services/EXE/";
-        $this->phpPath = $_SERVER['DOCUMENT_ROOT'] . "/../services/PHP/";
+        $this->servicesPath = Constants::servicesRoot();
     }
     
     public function add($bin) {
@@ -40,21 +38,13 @@ class ServiceManager extends NanoService {
         $file = $this->saveFile($bin, $temp);
         $folder = $this->unzipFile($file, $temp);
 
-        $runner = new Runner();
-        $information = $runner->getInformation($folder);
+        $runner = RunnerFactory::getRunnerByFolder($folder);
+        $information = $runner->getInformation($folder . "/" . $runner->mainFile());
 
         Debug::Log("adding service: ", "ServiceManager");
         Debug::Log($information, "ServiceManager");
 
-        if ($information['Type'] == "EXE") {
-            return $this->registerEXE($information, $folder);
-        } else
-
-        if ($information['Type'] == "PHP") {
-            return $this->registerPHP($information, $folder);
-        }
-
-        throw new Exception("Wrong Type");
+        return $this->register($information, $folder);
     }
     
     public function remove_version($name, $version) {
@@ -69,14 +59,7 @@ class ServiceManager extends NanoService {
         }
 
         $db->removeServiceVersion($name, $version);
-
-        if ($type == "EXE") {
-            $this->remove($this->exePath . "$name/$version");
-        } else 
-
-        if ($type == "PHP") {
-            $this->remove($this->phpPath . "$name/$version");
-        }
+        $this->remove($this->servicesPath . "$name/$version");
 
         return true;
     }
@@ -86,15 +69,13 @@ class ServiceManager extends NanoService {
         
         $db = new ServiceDB();
         $type = $db->getServiceType($name);
-        
-        if ($type == "EXE") {
-            $this->remove($this->exePath . "$name");
-        } else
 
-        if ($type == "PHP") {
-            $this->remove($this->phpPath . "$name");
+        if ($type === false) {
+            Debug::Log("service '$name' not found", "ServiceManager");
+            throw new Exception("service '$name' not found");
         }
-
+        $this->remove($this->servicesPath . "$name");
+        
         return $db->removeService($name);
     }
 
@@ -173,37 +154,11 @@ class ServiceManager extends NanoService {
         return $methods;
     }
 
-    private function registerEXE($information, $folder) {
+    private function register($information, $folder) {
         $services = $information['Result']['services'];
         foreach ($services as $serviceName => $serviceObj) {
             $serviceVersion = $serviceObj['version'];
-            $target = $this->exePath . "$serviceName/$serviceVersion";
-
-            $this->xcopy($folder, $target);
-
-            $db = new ServiceDB();
-            
-            if (!$db->exists($serviceName, $serviceVersion)) {
-                if ($db->exists($serviceName)) {
-                    $db->updateService($serviceName, $serviceVersion, $this->getMethods($serviceObj));
-                } else {
-                    $longName = $serviceObj['longName'];
-                    $description = $serviceObj['description'];
-                    $db->createService($longName, $serviceName, $description, $serviceVersion, $this->getMethods($serviceObj), "EXE");
-                }
-            } else {
-                throw new Exception("service with that version already exist '$serviceName : $serviceVersion'");
-            }
-        }
-
-        return array("registered" => $information);
-    }
-
-    private function registerPHP($information, $folder) {
-        $services = $information['Result']['services'];
-        foreach ($services as $serviceName => $serviceObj) {
-            $serviceVersion = $serviceObj['version'];
-            $target = $this->phpPath . "$serviceName/$serviceVersion";
+            $target = $this->servicesPath . "$serviceName/$serviceVersion";
 
             $this->xcopy($folder, $target);
 

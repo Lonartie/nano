@@ -18,11 +18,8 @@ abstract class Constants {
     const DebugFileMaxLines = 1000;                        // how many lines to save when 'DebugFlatten' is active
 
     // Runners
-    static function ExeServicesRoot() {                    // where to store EXE-services
-        return $_SERVER['DOCUMENT_ROOT'] . "/../services/EXE/";
-    }
-    static function PhpServicesRoot() {                    // where to store PHP-services
-        return $_SERVER['DOCUMENT_ROOT'] . "/../services/PHP/";
+    static function servicesRoot() {                       // where to store services
+        return $_SERVER['DOCUMENT_ROOT'] . "/../services/";
     }
 
 }

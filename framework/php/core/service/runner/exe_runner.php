@@ -1,9 +1,9 @@
 <?php
-include_once(dirname(__FILE__)."/../../../constants/constants.php");
-include_once(dirname(__FILE__)."/../../../debugging/debug.php");
-include_once(dirname(__FILE__)."/../../output.php");
-include_once(dirname(__FILE__)."/../runner_base.php");
-include_once(dirname(__FILE__)."/../runner_factory.php");
+include_once(dirname(__FILE__)."/../../constants/constants.php");
+include_once(dirname(__FILE__)."/../../debugging/debug.php");
+include_once(dirname(__FILE__)."/../output.php");
+include_once(dirname(__FILE__)."/runner_base.php");
+include_once(dirname(__FILE__)."/runner_factory.php");
 
 /// @brief runner implementation for services with .exe file extension
 class ExeRunner extends RunnerBase {
